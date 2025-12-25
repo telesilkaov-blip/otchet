@@ -6,6 +6,21 @@
 #include <time.h> 
 #include <stdlib.h> 
 
+
+void fillD(int *ptm, int n, int m)
+{
+	int i, j;
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < m; j++)
+		{
+			*(ptm + i * m + j) = -10 + rand() % 20;
+			printf("%5i", *(ptm + i * m + j));
+		}
+		printf("\n");
+	}
+}
+
 void main(void)
 {//#1
 #define n 5
@@ -13,15 +28,7 @@ void main(void)
 int a[n][m], i, j, p = 1,t,f;
 setlocale(LC_ALL, "rus");
 srand(time(NULL));
-for (i = 0; i < n; i++)
-{
-	for (j = 0; j < m; j++)
-	{
-		a[i][j] = rand() % 26;
-		printf("%5i", a[i][j]);
-	}
-	printf("\n");
-}
+fillD(a, n, m);
 printf("¬ведите T:");
 scanf_s("%i", &t);
 
